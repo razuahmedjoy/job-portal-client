@@ -7,7 +7,7 @@ const Title = ({ title = "", subtitle = "", black = true, align = "center", righ
 
     const alignClass = align === "center" ? "text-center" : "text-left";
     return (
-        <div className={`${alignClass} flex justify-between`}>
+        <div className={`${alignClass === 'center' ? 'text-center' : 'flex justify-between text-left'}`}>
             <div>
                 <h3 className={`text-xl md:text-3xl font-medium ${titleColor}`}>{title}</h3>
                 <p className={` text-base py-3 ${subtitleColor}`}>
