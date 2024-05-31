@@ -25,13 +25,14 @@ import {
     RocketLaunchIcon,
     Bars2Icon,
 } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // profile menu component
 const profileMenuItems = [
     {
-        label: "My Profile",
+        label: "Dashboard",
         icon: UserCircleIcon,
+        path: "/employer/dashboard"
     },
     {
         label: "Edit Profile",
@@ -53,8 +54,12 @@ const profileMenuItems = [
 
 function ProfileMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const navigate = useNavigate();
 
-    const closeMenu = () => setIsMenuOpen(false);
+    const closeMenu = (path) => {
+        navigate(path);
+        setIsMenuOpen(false);
+    };
 
     return (
         <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -79,12 +84,12 @@ function ProfileMenu() {
                 </Button>
             </MenuHandler>
             <MenuList className="p-1">
-                {profileMenuItems.map(({ label, icon }, key) => {
+                {profileMenuItems.map(({ label, icon, path }, key) => {
                     const isLastItem = key === profileMenuItems.length - 1;
                     return (
                         <MenuItem
                             key={label}
-                            onClick={closeMenu}
+                            onClick={() => closeMenu(path)}
                             className={`flex items-center gap-2 rounded ${isLastItem
                                 ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
                                 : ""
@@ -163,7 +168,7 @@ const navListItems = [
     },
 ];
 
-function NavList() {
+function NavList({ textColor }) {
     return (
         <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
 
@@ -175,18 +180,18 @@ function NavList() {
                     href="#"
                     variant="small"
                     color="gray"
-                    className="font-medium text-white"
+                    className={`font-medium ${textColor}`}
                 >
                     <MenuItem className="flex items-center gap-2 lg:rounded-full">
 
-                        <span className="text-white"> {label}</span>
+                        <span className={`${textColor}`}> {label}</span>
                     </MenuItem>
                 </Link>
             ))}
         </ul>
     );
 }
-const NavbarComponent = () => {
+const NavbarComponent = ({ transparent = false }) => {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
@@ -197,42 +202,44 @@ const NavbarComponent = () => {
             () => window.innerWidth >= 960 && setIsNavOpen(false),
         );
     }, []);
-
+    const textColor = transparent ? "text-white" : "text-black";
     return (
-        <nav className="absolute w-full top-0 left-0 right-0 z-50 bg-transparent blur-0 mx-auto max-w-screen-xl p-2 rounded-none shadow-none py-4 border-nonebackdrop:blur-none lg:px-2">
-            <div className="relative mx-auto flex items-center justify-between text-white">
+        <div className="border-b border-gray-300">
+            <nav className={`${transparent === true && 'absolute w-full top-0 left-0 right-0 bg-transparent'} z-50 blur-0 mx-auto max-w-screen-xl p-2 rounded-none shadow-none py-6 border-nonebackdrop:blur-none lg:px-2`}>
+                <div className={`relative mx-auto flex items-center justify-between ${textColor}`}>
 
 
-                <img className="w-24 md:w-28 cursor-pointer" src="https://cloudshee.com.au/wp-content/uploads/2021/04/cloudshee_logo__1_-removebg-preview-e1713522799179.png" alt="" />
-                <div className="hidden lg:block lg:ml-auto">
-                    <NavList />
+                    <img className="w-24 md:w-28 cursor-pointer" src="https://cloudshee.com.au/wp-content/uploads/2021/04/cloudshee_logo__1_-removebg-preview-e1713522799179.png" alt="" />
+                    <div className="hidden lg:block lg:ml-auto">
+                        <NavList />
+                    </div>
+                    <IconButton
+                        size="sm"
+                        color="blue-gray"
+                        variant="text"
+                        onClick={toggleIsNavOpen}
+                        className="ml-auto mr-2 lg:hidden"
+                    >
+                        <Bars2Icon className="h-6 w-6" />
+                    </IconButton>
+
+
+
+                    <Link className="lg:ml-auto ml-5" size="sm" variant="text">
+                        <span>Login/ Register</span>
+                    </Link>
+                    <ProfileMenu />
+                    <Link className="ml-2 text-black  hover:text-primary duration-300">
+                        <button className="bg-white py-2 px-4 rounded">
+                            <span>Add Job</span>
+                        </button>
+                    </Link>
                 </div>
-                <IconButton
-                    size="sm"
-                    color="blue-gray"
-                    variant="text"
-                    onClick={toggleIsNavOpen}
-                    className="ml-auto mr-2 lg:hidden"
-                >
-                    <Bars2Icon className="h-6 w-6" />
-                </IconButton>
-
-
-
-                <Link className="lg:ml-auto ml-5" size="sm" variant="text">
-                    <span>Login/ Register</span>
-                </Link>
-                <ProfileMenu />
-                <Link className="ml-2 text-black  hover:text-primary duration-300">
-                    <button className="bg-white py-2 px-4 rounded">
-                        <span>Add Job</span>
-                    </button>
-                </Link>
-            </div>
-            <MobileNav open={isNavOpen} className="overflow-scroll bg-black">
-                <NavList />
-            </MobileNav>
-        </nav>
+                <MobileNav open={isNavOpen} className="overflow-scroll bg-white">
+                    <NavList textColor={textColor} />
+                </MobileNav>
+            </nav>
+        </div>
     );
 }
 
