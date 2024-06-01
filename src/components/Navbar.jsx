@@ -152,7 +152,7 @@ const navListItems = [
     },
     {
         label: "Candidates",
-        path: "/cadidates"
+        path: "/candidates"
     },
     {
         label: "Employers",

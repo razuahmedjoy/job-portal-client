@@ -1,6 +1,6 @@
 import React from 'react';
 import JobCards from '../components/Shared/JobCards';
-import { AcademicCapIcon, BoltIcon, BookmarkIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon, BanknotesIcon, BoltIcon, BookmarkIcon, BriefcaseIcon, CalendarIcon, ClockIcon, CurrencyDollarIcon, UserCircleIcon, UserIcon } from '@heroicons/react/24/outline';
 
 const AllJobs = () => {
     return (
@@ -129,7 +129,100 @@ const AllJobs = () => {
                                     <button className="btn bg-primary text-white py-3 px-6 rounded-lg">Apply Now</button>
                                 </div>
                             </div>
+                            <div className="job-details h-screen overflow-auto  px-2 md:px-2 py-10">
+                                <h2 className="text-3xl font-medium">Job Overview</h2>
+
+                                <div className="grid grid-cols-4 my-5 gap-10 w-full mb-5">
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <CalendarIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Date Posted</h3>
+                                            <p className='text-sm text-gray-800'>31 May, 2002</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <CurrencyDollarIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Salary Offered</h3>
+                                            <p className='text-sm text-gray-800'>$450 - $500 / month</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <ClockIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Expiration Date</h3>
+                                            <p className='text-sm text-gray-800'>August 12, 2024</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <UserIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Experience</h3>
+                                            <p className='text-sm text-gray-800'>@ years</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <UserCircleIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Gender</h3>
+                                            <p className='text-sm text-gray-800'>Male</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <AcademicCapIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Qualification</h3>
+                                            <p className='text-sm text-gray-800'>Assoiate Degree</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex  gap-3">
+                                        <span className="bg-primary-light/50 w-12 h-12 rounded-full flex items-center justify-center text-primary p-3">
+                                            <BanknotesIcon className='w-6 h-6' />
+                                        </span>
+                                        <div>
+                                            <h3 className="text-base font-medium">Qualification</h3>
+                                            <p className='text-sm text-gray-800'>Assoiate Degree</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr className='my-8' />
+
+                                <h2 className="text-3xl font-medium">Job Description</h2>
+                                <div className='job-description p-2 my-5'>
+                                    Job Description here
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem ipsum, a, exercitationem esse inventore commodi possimus similique dolores adipisci magnam quasi error maxime doloribus minima officiis animi eos fugiat dolor.</p>
+                                    <br />
+                                    <h2 className="font-bold">Requirements</h2>
+
+                                    <ul>
+                                        <li>Requirement 1</li>
+                                        <li>Requirement 1</li>
+                                        <li>Requirement 1</li>
+                                        <li>Requirement 1</li>
+                                        <li>Requirement 1</li>
+                                        <li>Requirement 1</li>
+                                    </ul>
+
+                                    <p className="pt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, sint! Ipsa maxime tempora dolore molestias provident repellat, fuga odit cupiditate iure similique dicta! Praesentium est vero explicabo quidem modi laborum repudiandae molestiae officiis amet expedita voluptas illum dignissimos pariatur deserunt, error recusandae cumque repellat dolorum, natus maiores consequatur, fuga aliquam.</p>
+
+                                    <p className="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae numquam laboriosam beatae id expedita! Exercitationem atque iste alias temporibus sunt voluptatem consequuntur praesentium delectus incidunt tenetur? Dolore pariatur, nemo dignissimos totam repudiandae voluptates esse animi adipisci expedita, suscipit aperiam deserunt assumenda nam error doloribus eos natus soluta cum voluptas optio. Architecto amet laboriosam, eos illo ullam omnis magnam aperiam, corporis non quisquam, labore quo asperiores. Quia voluptas nemo consequatur? Aut quae debitis delectus? Quas molestias, assumenda nihil quidem est eaque hic veritatis unde adipisci! Sunt, eveniet facere temporibus eaque adipisci modi rem obcaecati reiciendis eligendi laborum iusto voluptas praesentium sapiente.</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

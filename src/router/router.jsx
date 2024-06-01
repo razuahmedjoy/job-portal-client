@@ -8,6 +8,7 @@ import MyJobs from "../Pages/Employers/MyJobs";
 import AllJobs from "../Pages/AllJobs";
 import TransperentHeader from "../layouts/TransparentHeader";
 import CommonHeader from "../layouts/CommonHeader";
+import Candidates from "../Pages/Candidates";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
             {
                 path: "jobs",
                 element: <AllJobs />,
-            }
+            },
+            {
+                path: "candidates",
+                element: <Candidates />,
+            },
+            
         ]
     },
 
